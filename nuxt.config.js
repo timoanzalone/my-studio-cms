@@ -25,6 +25,15 @@ export default {
           payload: require(`./assets/content/blog/${file}`)
         }
       })
+    },
+    function() {
+      const fs = require('fs')
+      return fs.readdirSync('./assets/content/projects').map(file => {
+        return {
+          route: `/projects/${file.slice(2, -5)}`,
+          payload: require(`./assets/content/projects/${file}`)
+        }
+      })
     }
   },
   /*

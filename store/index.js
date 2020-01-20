@@ -25,8 +25,6 @@ export const actions = {
       return res
     })
     await commit('setBlogPosts', blogPosts)
-  },
-  async nuxtServerInit({ commit }) {
     let projectFiles = await require.context(
       '~/assets/content/projects/',
       false,
