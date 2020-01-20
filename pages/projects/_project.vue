@@ -11,6 +11,7 @@
 </template>
 <script>
 export default {
+  layout: 'project',
   async asyncData({ params, payload }) {
     if (payload) return { projectPost: payload }
     else

@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+  layout: 'default',
   computed: {
     blogPosts() {
       return this.$store.state.blogPosts

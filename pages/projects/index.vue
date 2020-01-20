@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+  layout: 'default',
   computed: {
     projectPosts() {
       return this.$store.state.projectPosts
