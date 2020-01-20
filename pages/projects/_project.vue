@@ -1,8 +1,13 @@
 <template>
-  <article>
-    <h1>{{projectPost.title}}</h1>
-    <div v-html="$md.render(projectPost.body)" />
-  </article>
+  <div>
+    <div class="hero">
+      <img v-lazy="hero" alt />
+    </div>
+    <article>
+      <h1>{{projectPost.title}}</h1>
+      <div v-html="$md.render(projectPost.body)" />
+    </article>
+  </div>
 </template>
 <script>
 export default {
