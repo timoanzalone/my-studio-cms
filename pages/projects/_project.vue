@@ -20,3 +20,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.hero {
+  height: 100vh;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+</style>
