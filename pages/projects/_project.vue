@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="hero">
-      <img v-lazy="hero" alt />
+    <div class="hero" :style="{ backgroundImage: `url('${projectPost.hero}')` }">
+      <h1>{{projectPost.title}}</h1>
+      <h3>{{projectPost.description}}</h3>
     </div>
     <article>
-      <h1>{{projectPost.title}}</h1>
       <div v-html="$md.render(projectPost.body)" />
     </article>
   </div>
