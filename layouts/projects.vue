@@ -4,7 +4,7 @@
   </main>
 </template>
 
-<style>
+<style scoped>
 html {
   font-family: 'pano trial', Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -109,6 +109,7 @@ div.scrollbar {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 </style>
 

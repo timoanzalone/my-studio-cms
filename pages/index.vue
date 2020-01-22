@@ -1,33 +1,35 @@
 <template>
-  <div>
-    <logo />
-    <h1 class="title">Nuxt.js & Netlify CMS Starter</h1>
-    <h2 class="subtitle">Truly fantastic. Sometimes I astound even myself.</h2>
-    <a href="https://github.com/xdesro/nuxt-netlify-cms-starter">GitHub</a>
-    <a href="http://i.ncredibly.online">Twitter</a>
-    <nuxt-link to="/blog">Blog</nuxt-link>
-    <div class="deploy-button">
-      <a
-        href="https://app.netlify.com/start/deploy?repository=https://github.com/xdesro/nuxt-netlify-cms-starter"
-      >
-        <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />
-      </a>
+  <div data-scroll>
+    <div class="scrollbar"></div>
+    <Nav v-bind:class="{ active: isActive }" />
+    <div data-scroll-content>
+      <Hero v-on:toggle-active="isActive = !isActive" />
+      <Projects />
     </div>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Nav from '~/components/nav.vue'
+import Hero from '~/components/hero.vue'
+import Projects from '~/components/projects.vue'
 
 export default {
   components: {
-    Logo
+    Nav,
+    Hero,
+    Projects
   },
   head() {
     return {
       script: [
         { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
       ]
+    }
+  },
+  data() {
+    return {
+      isActive: false
     }
   }
 }
