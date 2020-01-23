@@ -28,6 +28,7 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: 'Order', name: 'order', widget: 'number' }
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'string' }
