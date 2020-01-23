@@ -1,3 +1,26 @@
+const dynamicRoutes = async () => {
+  const fs = require('fs')
+
+  const blogFetch = fs.readdirSync('./assets/content/blog').map(file => {
+    return {
+      route: `/blog/${file.slice(0, -5)}/`,
+      payload: require(`./assets/content/blog/${file}`)
+    }
+  })
+
+  const projectsFetch = fs
+    .readdirSync('./assets/content/projects')
+    .map(file => {
+      return {
+        route: `/projects/${file.slice(0, -5)}/`,
+        payload: require(`./assets/content/projects/${file}`)
+      }
+    })
+
+  const routes = blogFetch.concat(projectsFetch)
+
+  return routes
+}
 export default {
   mode: 'universal',
   /*
@@ -17,24 +40,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   generate: {
-    routes: function() {
-      const fs = require('fs')
-      return fs.readdirSync('./assets/content/blog').map(file => {
-        return {
-          route: `/blog/${file.slice(0, -5)}`,
-          payload: require(`./assets/content/blog/${file}`)
-        }
-      })
-    },
-    routes() {
-      const fs = require('fs')
-      return fs.readdirSync('./assets/content/projects').map(file => {
-        return {
-          route: `/projects/${file.slice(0, -5)}`,
-          payload: require(`./assets/content/projects/${file}`)
-        }
-      })
-    }
+    routes: dynamicRoutes
   },
   /*
    ** Customize the progress-bar color
