@@ -1,9 +1,10 @@
 <template>
   <div>
-    <ul v-for="(blogPost, index) in blogPosts" :key="index">
+    <div v-for="(blogPost, index) in blogPosts" :key="index">
       <nuxt-link :to="`/blog/${blogPost.slug}/`">{{blogPost.title}}</nuxt-link>
+      <img src="{{blogPost.featured_image}}" />
       <p>{{blogPost.description}}</p>
-    </ul>
+    </div>
   </div>
 </template>
 <script>
