@@ -2,7 +2,7 @@
   <div>
     <div v-for="(blogPost, index) in blogPosts" :key="index">
       <nuxt-link :to="`/blog/${blogPost.slug}/`">{{blogPost.title}}</nuxt-link>
-      <img src="{{blogPost.featured_image}}" />
+      <img :src=" blogPost.featured_image " />
       <p>{{blogPost.description}}</p>
     </div>
   </div>
