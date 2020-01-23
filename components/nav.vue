@@ -30,13 +30,18 @@
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to=/projects>
+          <nuxt-link to=/projects >
             <sup>03</sup>Projects
           </nuxt-link>
         </li>
         <li>
-          <nuxt-link to=/contact>
-            <sup>04</sup>Contact
+          <nuxt-link to=/blog >
+            <sup>04</sup>Blog
+          </nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to=/contact >
+            <sup>05</sup>Contact
           </nuxt-link>
         </li>
       </ul>
