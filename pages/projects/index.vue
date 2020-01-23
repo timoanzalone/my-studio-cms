@@ -5,7 +5,7 @@
     <div data-scroll-content>
       <div class="container">
         <ul v-for="(projectPost, index) in projectPosts" :key="index">
-          <nuxt-link :to="`/projects/${projectPost.slug}`">{{projectPost.title}}</nuxt-link>
+          <nuxt-link :to="`/projects/${projectPost.slug}/`">{{projectPost.title}}</nuxt-link>
           <p>{{projectPost.description}}</p>
         </ul>
       </div>
