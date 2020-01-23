@@ -24,7 +24,7 @@ collections:
     folder: 'assets/content/projects'
     create: true
     format: 'json'
-    slug: '{{slug}}'
+    slug: '{{order}}-{{slug}}'
     editor:
       preview: false
     fields:
