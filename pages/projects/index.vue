@@ -1,22 +1,18 @@
 <template>
-  <div data-scroll>
-    <div class="scrollbar"></div>
-    <Nav v-bind:class="{ active: isActive }" />
-    <div data-scroll-content>
-      <div class="container">
-        <ul v-for="(projectPost, index) in projectPosts" :key="index">
-          <nuxt-link :to="`/projects/${projectPost.slug}/`">{{projectPost.title}}</nuxt-link>
-          <p>{{projectPost.description}}</p>
-        </ul>
-      </div>
-    </div>
+  <div class="container mx-auto px-4">
+    <ul v-for="(projectPost, index) in projectPosts" :key="index">
+      <nuxt-link :to="`/projects/${projectPost.slug}/`">{{projectPost.title}}</nuxt-link>
+    </ul>
   </div>
 </template>
 <script>
 import Nav from '~/components/nav.vue'
 
 export default {
-  layout: 'projects',
+  layout: 'projectsLayout',
+  components: {
+    Nav
+  },
   computed: {
     projectPosts() {
       return this.$store.state.projectPosts
@@ -24,27 +20,9 @@ export default {
   },
   data() {
     return {
-      isActive: false
+      isActive: false,
+      isOpen: false
     }
-  },
-  components: {
-    Nav
   }
 }
 </script>
-
-<style scoped>
-ul a {
-  color: white;
-}
-
-ul {
-  padding: 0;
-}
-
-div.container {
-  padding-top: 10rem;
-  font-family: 'pano trial';
-  padding-bottom: 10rem;
-}
-</style>

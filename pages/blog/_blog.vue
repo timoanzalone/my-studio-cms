@@ -1,11 +1,17 @@
 <template>
-  <article>
-    <h1>{{blogPost.title}}</h1>
-    <div v-html="$md.render(blogPost.body)" />
-  </article>
+  <div class="container">
+    <article>
+      <h1>{{blogPost.title}}</h1>
+      <div v-html="$md.render(blogPost.body)" />
+    </article>
+  </div>
 </template>
 <script>
+import Nav from '~/components/nav.vue'
 export default {
+  components: {
+    Nav
+  },
   async asyncData({ params, payload }) {
     if (payload) return { blogPost: payload }
     else

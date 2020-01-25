@@ -1,10 +1,16 @@
 <template>
-  <main id="page">
-    <nuxt />
-  </main>
+  <div data-scroll>
+    <div class="scrollbar"></div>
+    <Nav v-bind:class="{ active: isActive }" />
+    <div data-scroll-content>
+      <main id="page">
+        <nuxt />
+      </main>
+    </div>
+  </div>
 </template>
 
-<style scoped>
+<style>
 html {
   font-family: 'pano trial', Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -14,7 +20,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  background: black;
+  background: white;
 }
 
 ::-webkit-scrollbar {
@@ -22,7 +28,7 @@ html {
 }
 
 #page {
-  background: black;
+  background: white;
   transition: 0.3s ease;
   scrollbar-width: none;
 }
@@ -61,11 +67,6 @@ nav.active div.navigation span {
   margin: 0 auto;
 }
 
-.container {
-  width: 90%;
-  margin: 0 auto;
-}
-
 .navbar {
   position: fixed;
   left: 0;
@@ -95,6 +96,7 @@ nav.active div.navigation span {
 
 div[data-scroll-content] {
   position: relative;
+  min-height: 100vh;
 }
 
 div.scrollbar {
@@ -109,16 +111,20 @@ div.scrollbar {
 
 a {
   text-decoration: none;
-  color: inherit;
 }
 </style>
 
 <script>
+import Nav from '~/components/nav.vue'
+
 export default {
   data() {
     return {
       isActive: false
     }
+  },
+  components: {
+    Nav
   },
   mounted() {
     const math = {

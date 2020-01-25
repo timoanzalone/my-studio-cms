@@ -2,18 +2,16 @@
 <div>
 <nav class="navbar">
     <div class="navbar-container">
-      <nuxt-link to="/" class="logo">8025 studio
-        <svg class="spinner" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 0L4.89806 2.76393H7.80423L5.45308 4.47214L6.35114 7.23607L4 5.52786L1.64886 7.23607L2.54692 4.47214L0.195774 2.76393H3.10194L4 0Z" fill="white"/>
-        </svg>
-      </nuxt-link>
-      
       <div v-on:click="isRotate = !isRotate, isOpen =!isOpen" class="navigation">
         <a to="#">
           <span v-bind:class="{ rotate: isRotate }"></span>
         </a>
-        
       </div>
+      <nuxt-link to="/" class="logo">8025 studio
+        <svg class="spinner" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 0L4.89806 2.76393H7.80423L5.45308 4.47214L6.35114 7.23607L4 5.52786L1.64886 7.23607L2.54692 4.47214L0.195774 2.76393H3.10194L4 0Z" fill="black"/>
+        </svg>
+      </nuxt-link>
     </div>
   </nav>
   <div class="navFullWrapper" v-bind:class="{ open: isOpen }">
@@ -81,14 +79,18 @@ export default {
   opacity: 0;
   transition: all .4s ease-in-out;
   height: 100%;
-  top: 80px;
+  top: 0;
+  left: 0;
   position: fixed;
-  background: black;
+  background: red;
   text-align: left;
   width: 100%;
   color: #000;
   display: flex;
   align-items: center;
+  pointer-events: none;
+  visibility: hidden;
+  transform: translate(0, -100%);
 }
 
 .navFullWrapper.open {
@@ -96,8 +98,11 @@ export default {
   left: 0;
   top: 0;
   z-index: 1;
-  background: black;
+  background: red;
   transition: all .4s ease-in-out;
+  pointer-events:all;
+  transform: translate(0,0);
+  visibility: visible;
 }
 
 .navFullInner ul{
@@ -150,7 +155,11 @@ export default {
   font-weight: 400;
   user-select: none;
   cursor: pointer;
-  color: #fff;
+  color: #000 !important;
+  position: absolute;
+  left: 50%;
+  margin-right: -50%;
+  transform: translateX(-50%);
 }
 
 .spinner {
@@ -167,7 +176,6 @@ export default {
 }
 .navbar-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -183,7 +191,7 @@ span, span::after, span::before {
   width: 40px;
   margin-top: 0px;
   height: 2.2px;
-  background-color: #fff;
+  background-color: #000;
   transition: all .1s ease-in;
   opacity: 1;
 }

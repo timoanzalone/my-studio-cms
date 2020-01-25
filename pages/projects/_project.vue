@@ -10,8 +10,12 @@
   </div>
 </template>
 <script>
+import Nav from '~/components/nav.vue'
 export default {
-  layout: 'project',
+  layout: 'projectLayout',
+  components: {
+    Nav
+  },
   async asyncData({ params, payload }) {
     if (payload) return { projectPost: payload }
     else
@@ -28,5 +32,9 @@ export default {
   width: 100%;
   color: white;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>

@@ -30,22 +30,15 @@ export default {
 </script>
 
 <style scoped>
-
-
 div {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 .number {
   color: transparent;
   -webkit-text-stroke: 1px white;
   text-align: right;
-}
-div.container {
-  padding-top: 10rem;
-  font-family: 'pano trial';
-  padding-bottom: 10rem;
 }
 
 h2.marquee {

@@ -1,11 +1,7 @@
 <template>
-  <div data-scroll>
-    <div class="scrollbar"></div>
-    <Nav v-bind:class="{ active: isActive }" />
-    <div data-scroll-content>
-      <Hero v-on:toggle-active="isActive = !isActive" />
-      <Projects />
-    </div>
+  <div>
+    <Hero v-on:toggle-active="isActive = !isActive" />
+    <Projects />
   </div>
 </template>
 
