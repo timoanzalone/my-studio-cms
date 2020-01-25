@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto px-4">
-    <div class="flex">
+    <div class="flex flex-wrap">
       <div
         :class="`px-2 blog-item ${blogPost.layout_class}`"
         v-for="(blogPost, index) in blogPosts"
