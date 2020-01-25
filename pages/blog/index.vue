@@ -4,11 +4,10 @@
       <div class="px-2" v-for="(blogPost, index) in blogPosts" :key="index">
         <nuxt-link :to="`/blog/${blogPost.slug}/`">
           <img class="w-full object-cover" :src=" blogPost.featured_image " />
+          <div>{{blogPost.date}}</div>
+          <h2 class="text-2xl">{{blogPost.title}}</h2>
+          <p>{{blogPost.description}}</p>
         </nuxt-link>
-        <nuxt-link :to="`/blog/${blogPost.slug}/`">
-          <h2>{{blogPost.title}}</h2>
-        </nuxt-link>
-        <p>{{blogPost.description}}</p>
       </div>
     </div>
   </div>
