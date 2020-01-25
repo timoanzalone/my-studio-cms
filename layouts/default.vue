@@ -1,11 +1,12 @@
 <template>
-  <div data-scroll>
-    <div class="scrollbar"></div>
+  <div>
     <Nav v-bind:class="{ active: isActive }" />
-    <div data-scroll-content>
-      <main id="page">
-        <nuxt />
-      </main>
+    <div id="js-scroll">
+      <div>
+        <main id="page">
+          <nuxt />
+        </main>
+      </div>
     </div>
   </div>
 </template>
@@ -120,164 +121,19 @@ import Nav from '~/components/nav.vue'
 export default {
   data() {
     return {
-      isActive: false
+      isActive: false,
+      lmS: false
     }
   },
   components: {
     Nav
   },
   mounted() {
-    const math = {
-      lerp: (a, b, n) => {
-        return (1 - n) * a + n * b
-      },
-      norm: (value, min, max) => {
-        return (value - min) / (max - min)
-      }
-    }
-
-    const config = {
-      height: window.innerHeight,
-      width: window.innerWidth
-    }
-
-    class Smooth {
-      constructor() {
-        this.bindMethods()
-
-        this.data = {
-          ease: 0.1,
-          current: 0,
-          last: 0
-        }
-
-        this.data.scrollbar = {
-          ease: 0.08,
-          current: 0,
-          last: 0
-        }
-
-        this.dom = {
-          el: document.querySelector('[data-scroll]'),
-          content: document.querySelector('[data-scroll-content]'),
-          scrollbar: document.querySelector('.scrollbar')
-        }
-
-        this.rAF = null
-
-        this.init()
-      }
-
-      bindMethods() {
-        ;['scroll', 'run', 'resize'].forEach(
-          fn => (this[fn] = this[fn].bind(this))
-        )
-      }
-
-      setStyles() {
-        Object.assign(this.dom.el.style, {
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          height: '100%',
-          width: '100%',
-          overflow: 'hidden'
-        })
-      }
-
-      setHeight() {
-        document.body.style.height = `${this.dom.content.offsetHeight}px`
-      }
-
-      resize() {
-        this.setHeight()
-        this.scroll()
-      }
-
-      scroll() {
-        this.data.current = window.scrollY
-      }
-
-      run() {
-        this.data.last = math.lerp(
-          this.data.last,
-          this.data.current,
-          this.data.ease
-        )
-        if (this.data.last < 0.1) {
-          this.data.last = 0
-        }
-        this.data.scrollbar.last = math.lerp(
-          this.data.last,
-          this.data.current,
-          this.data.ease
-        )
-        if (this.data.last < 0.1) {
-          this.data.last = 0
-        }
-
-        const diff = this.data.current - this.data.last
-        const acc = diff / config.width
-        const velo = +acc
-
-        this.dom.content.style.transform = `translate3d(0, -${this.data.last}px, 0)`
-
-        this.dom.scrollbar.style.transform = `translate3d(0, ${this.data.scrollbar.last}px, 0)`
-
-        this.requestAnimationFrame()
-      }
-
-      on() {
-        this.setStyles()
-        this.setHeight()
-        this.addEvents()
-
-        this.requestAnimationFrame()
-      }
-
-      off() {
-        this.cancelAnimationFrame()
-
-        this.removeEvents()
-      }
-
-      requestAnimationFrame() {
-        this.rAF = requestAnimationFrame(this.run)
-      }
-
-      cancelAnimationFrame() {
-        cancelAnimationFrame(this.rAF)
-      }
-
-      destroy() {
-        document.body.style.height = ''
-
-        this.data = null
-
-        this.removeEvents()
-        this.cancelAnimationFrame()
-      }
-
-      resize() {
-        this.setHeight()
-      }
-
-      addEvents() {
-        window.addEventListener('resize', this.resize, { passive: true })
-        window.addEventListener('scroll', this.scroll, { passive: true })
-      }
-
-      removeEvents() {
-        window.removeEventListener('resize', this.resize, { passive: true })
-        window.removeEventListener('scroll', this.scroll, { passive: true })
-      }
-
-      init() {
-        this.on()
-      }
-    }
-
-    new Smooth()
+    this.lmS = new this.locomotiveScroll({
+      el: document.querySelector('#js-scroll'),
+      smooth: true
+    })
+    console.log('lmS', this.lmS)
   }
 }
 </script>

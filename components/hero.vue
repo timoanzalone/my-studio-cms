@@ -2,7 +2,12 @@
   <div class="hero" v-bind:class="{ active: isActive }">
     <div class="container">
       <div class="value-proposition">
-        <h1 style="font-family: 'Pano trial';">
+        <h1
+          data-scroll
+          data-scroll-speed="2"
+          data-scroll-direction="horizontal"
+          style="font-family: 'Pano trial';"
+        >
           Make your
           <br />
           <span class="rw rw-1">business</span>

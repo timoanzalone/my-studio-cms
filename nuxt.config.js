@@ -37,7 +37,13 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    script: [
+      {
+        src:
+          'https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver'
+      }
+    ]
   },
   generate: {
     routes: dynamicRoutes
@@ -53,7 +59,12 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    {
+      src: '~/plugins/locomotiveScroll.js',
+      ssr: false
+    }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
