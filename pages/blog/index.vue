@@ -1,11 +1,7 @@
 <template>
   <div class="container mx-auto px-4">
     <div class="flex flex-wrap">
-      <div
-        :class="`px-2 blog-item ${blogPost.layout_class}`"
-        v-for="(blogPost, index) in blogPosts"
-        :key="index"
-      >
+      <div class="px-2" v-for="(blogPost, index) in blogPosts" :key="index">
         <nuxt-link :to="`/blog/${blogPost.slug}/`">{{blogPost.title}}</nuxt-link>
         <nuxt-link :to="`/blog/${blogPost.slug}/`">
           <img class="w-full object-cover" :src=" blogPost.featured_image " />
