@@ -27,6 +27,17 @@ export default {
     return {
       isActive: false
     }
+  },
+  mounted() {
+    var url = 'http://localhost:8081/v1/docs'
+
+    var httpreq = new XMLHttpRequest()
+    httpreq.open('GET', url, false)
+    httpreq.send(null)
+
+    var risultato = httpreq.responseText
+
+    alert(risultato)
   }
 }
 </script>
