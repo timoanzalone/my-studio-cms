@@ -1,7 +1,7 @@
 <template>
   <div>
     <Hero v-on:toggle-active="isActive = !isActive" />
-    <Projects />
+    <!-- <Projects /> -->
   </div>
 </template>
 

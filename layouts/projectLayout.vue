@@ -12,7 +12,7 @@
 
 <style>
 html {
-  font-family: 'pano trial', Helvetica, Arial, sans-serif;
+  font-family: 'Labil Grotesk Trial', Helvetica, Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -50,8 +50,8 @@ nav.active div.navigation span {
 }
 
 ::selection {
-  color: black;
-  background: red;
+  color: #fff;
+  background: #4801ff;
 }
 
 *,
@@ -59,12 +59,6 @@ nav.active div.navigation span {
 *:after {
   box-sizing: border-box;
   margin: 0;
-}
-
-.navbar-container {
-  width: 90%;
-  height: 60px;
-  margin: 0 auto;
 }
 
 .navbar {

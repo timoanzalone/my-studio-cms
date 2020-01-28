@@ -27,7 +27,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: '8025 studio - Creative Digital Design studio',
+    title: 'The Big Lebowski - Creative Digital Design studio',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -62,6 +62,10 @@ export default {
   plugins: [
     {
       src: '~/plugins/locomotiveScroll.js',
+      ssr: false
+    },
+    {
+      src: '~/plugins/imagesLoaded.js',
       ssr: false
     }
   ],

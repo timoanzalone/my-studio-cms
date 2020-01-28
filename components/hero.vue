@@ -1,21 +1,18 @@
 <template>
   <div class="hero" v-bind:class="{ active: isActive }">
-    <div class="container">
-      <div class="value-proposition">
+    <div>
+      <div>
         <h1
           data-scroll
           data-scroll-speed="2"
           data-scroll-direction="horizontal"
-          style="font-family: 'Pano trial';"
+          style="font-family: 'Labil Grotesk Trial'; font-weight: 600; line-height: 1.1; font-size: 5rem;"
         >
-          Make your
-          <br />
-          <span class="rw rw-1">business</span>
-          happen
+          Designed to be loved
+          <br />and used by millions.
         </h1>
-        <p>Let's create beautiful digital experiences and awesome brand identities together.</p>
       </div>
-      <a class="toggle" v-on:click="isActive = !isActive" @click="addActive()">Make the magic happen</a>
+      <!-- <a class="toggle" v-on:click="isActive = !isActive" @click="addActive()">Make the magic happen</a> -->
     </div>
   </div>
 </template>
@@ -42,8 +39,8 @@ export default {
   align-items: center;
   transition: all 0.3s ease;
   position: relative;
-  background-color: white;
-  color: #000;
+  background-color: #4801ff;
+  color: #fff;
 }
 
 .hero.active {

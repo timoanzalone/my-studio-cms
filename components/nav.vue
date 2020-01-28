@@ -1,16 +1,16 @@
 <template>
 <div>
 <nav class="navbar">
-    <div class="navbar-container">
+    <div class="flex items-center mx-auto px-10">
       <div v-on:click="isRotate = !isRotate, isOpen =!isOpen" class="navigation">
         <a to="#">
           <span v-bind:class="{ rotate: isRotate }"></span>
         </a>
       </div>
-      <nuxt-link to="/" class="logo">8025 studio
-        <svg class="spinner" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <nuxt-link to="/" class="logo">The Big Lebowski
+        <!-- <svg class="spinner" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M4 0L4.89806 2.76393H7.80423L5.45308 4.47214L6.35114 7.23607L4 5.52786L1.64886 7.23607L2.54692 4.47214L0.195774 2.76393H3.10194L4 0Z" fill="black"/>
-        </svg>
+        </svg> -->
       </nuxt-link>
     </div>
   </nav>
@@ -82,7 +82,7 @@ export default {
   top: 0;
   left: 0;
   position: fixed;
-  background: red;
+  background: #4801ff;
   text-align: left;
   width: 100%;
   color: #000;
@@ -98,7 +98,7 @@ export default {
   left: 0;
   top: 0;
   z-index: 1;
-  background: red;
+  background: #4801ff;
   transition: all .4s ease-in-out;
   pointer-events:all;
   transform: translate(0,0);
@@ -150,9 +150,9 @@ export default {
 }
 
 .logo {
-  font-family: 'Pano trial';
-  font-size: 1.5rem;  
-  font-weight: 400;
+  font-family: 'Labil Grotesk Trial';
+  font-size: 2rem;  
+  font-weight: 700;
   user-select: none;
   cursor: pointer;
   color: #000 !important;
@@ -173,15 +173,6 @@ export default {
 		to {
 				transform: rotate(359deg);
 		}
-}
-.navbar-container {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-container a {
-  color: inherit;
-  text-decoration: none;
 }
 
 span, span::after, span::before {

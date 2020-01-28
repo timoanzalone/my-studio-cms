@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="container">
-      <h2 class="marquee">Selected projects</h2>
+    <div class="container mx-auto pt-10">
+      <h2 class="marquee">Our Work</h2>
       <ul class="projects">
         <li>
           <nuxt-link to="#">Instyle Showroom</nuxt-link>
