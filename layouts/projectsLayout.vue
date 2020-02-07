@@ -120,15 +120,6 @@ export default {
   components: {
     Nav
   },
-  mounted() {
-    this.lmS = new this.locomotiveScroll({
-      el: document.querySelector('#js-scroll'),
-      smooth: true
-    })
-    console.log('lmS', this.lmS)
-    imagesLoaded('#js-scroll', () => {
-      this.lmS.update()
-    })
-  }
+  mounted() {}
 }
 </script>

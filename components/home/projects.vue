@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="container mx-auto pt-10">
-      <h2 class="marquee">Our Work</h2>
+    <!-- <div class="container mx-auto mt-20 pt-10">
+      <h2>Our work</h2>
       <ul class="projects">
         <li>
           <nuxt-link to="#">Instyle Showroom</nuxt-link>
@@ -14,7 +14,7 @@
           <nuxt-link to="#">Iuri</nuxt-link>
         </li>
       </ul>
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -41,16 +41,14 @@ div {
   text-align: right;
 }
 
-h2.marquee {
-  font-size: 2rem;
-  text-transform: capitalize;
-  font-weight: 300;
-  margin-bottom: 2rem;
+h2 {
+  font-size: 5rem;
+  font-weight: 600;
 }
 
 ul.projects {
   list-style: none;
-  font-size: 5rem;
+  font-size: 3.75rem;
   padding-left: 0;
 }
 </style>

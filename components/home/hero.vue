@@ -1,11 +1,10 @@
 <template>
   <div class="hero" v-bind:class="{ active: isActive }">
-    <div>
+    <div class="text-center container mx-auto">
       <div>
         <h1
           data-scroll
-          data-scroll-speed="2"
-          data-scroll-direction="horizontal"
+          data-scroll-speed="-2"
           style="font-family: 'Labil Grotesk Trial'; font-weight: 600; line-height: 1.1; font-size: 5rem;"
         >
           Designed to be loved
@@ -28,6 +27,13 @@ export default {
     addActive() {
       this.$emit('toggle-active')
     }
+  },
+  mounted() {
+    this.lmS = new this.locomotiveScroll({
+      el: document.querySelector('#js-scroll'),
+      smooth: false
+    })
+    console.log('lmS', this.lmS)
   }
 }
 </script>

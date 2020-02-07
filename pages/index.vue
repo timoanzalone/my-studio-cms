@@ -1,14 +1,14 @@
 <template>
   <div>
     <Hero v-on:toggle-active="isActive = !isActive" />
-    <!-- <Projects /> -->
+    <Projects />
   </div>
 </template>
 
 <script>
 import Nav from '~/components/nav.vue'
-import Hero from '~/components/hero.vue'
-import Projects from '~/components/projects.vue'
+import Hero from '~/components/home/hero.vue'
+import Projects from '~/components/home/projects.vue'
 
 export default {
   components: {
@@ -27,6 +27,13 @@ export default {
     return {
       isActive: false
     }
+  },
+  mounted() {
+    // this.lmS = new this.locomotiveScroll({
+    //   el: document.querySelector('#js-scroll'),
+    //   smooth: true
+    // })
+    // console.log('lmS', this.lmS)
   }
 }
 </script>

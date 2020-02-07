@@ -1,93 +1,109 @@
 <template>
-<div>
-<nav class="navbar">
-    <div class="flex items-center mx-auto px-10">
-      <div v-on:click="isRotate = !isRotate, isOpen =!isOpen" class="navigation">
-        <a to="#">
-          <span v-bind:class="{ rotate: isRotate }"></span>
-        </a>
+  <div>
+    <nav class="navbar" v-bind:class="{ open: isOpen }">
+      <div class="flex items-center mx-auto px-10">
+        <div v-on:click="isRotate = !isRotate, isOpen =!isOpen" class="navigation">
+          <a to="#">
+            <span v-bind:class="{ rotate: isRotate }"></span>
+          </a>
+        </div>
+        <nuxt-link to="/" class="logo">The Big Lebowski</nuxt-link>
       </div>
-      <nuxt-link to="/" class="logo">The Big Lebowski
-        <!-- <svg class="spinner" width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 0L4.89806 2.76393H7.80423L5.45308 4.47214L6.35114 7.23607L4 5.52786L1.64886 7.23607L2.54692 4.47214L0.195774 2.76393H3.10194L4 0Z" fill="black"/>
-        </svg> -->
-      </nuxt-link>
-    </div>
-  </nav>
-  <div class="navFullWrapper" v-bind:class="{ open: isOpen }">
-    <div class="navFullInner">
-      <ul>
-        <li>
-          <nuxt-link to=/>
-            <sup>01</sup>Home
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to=/about>
-            <sup>02</sup>About
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to=/projects >
-            <sup>03</sup>Projects
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to=/blog >
-            <sup>04</sup>Blog
-          </nuxt-link>
-        </li>
-        <li>
-          <nuxt-link to=/contact >
-            <sup>05</sup>Contact
-          </nuxt-link>
-        </li>
-      </ul>
+    </nav>
+
+    <div class="navFullWrapper px-8" v-bind:class="{ open: isOpen }">
+      <div class="container mt-20 pt-20 px-2">
+        <div class="flex flex-wrap">
+          <div class="w-1/3 pr-4">
+            <h3 class="text-2xl select-none">Navigation</h3>
+            <hr class="mt-4" />
+            <ul class="mt-8 text-2xl">
+              <li>
+                <nuxt-link to="/">Home</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/about">About</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/projects">Projects</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/blog">Blog</nuxt-link>
+              </li>
+              <li>
+                <nuxt-link to="/contact">Contact</nuxt-link>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pl-4 w-1/3">
+            <h3 class="text-2xl select-none">Latest Blog Posts</h3>
+            <hr class="mt-4" />
+            <ul class="mt-8">
+              <li v-for="(blogPost, index) in blogPosts" :key="index">
+                <nuxt-link :to="`/blog/${blogPost.slug}/`">
+                  <h2 class="text-2xl">{{blogPost.title}}</h2>
+                </nuxt-link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-  
 </template>
 
 <script>
 export default {
-    data() {
-      return {
-        isRotate: false,
-        isOpen: false,
-      }
-    },
-    props: {
-    isActive:{
-        type: String
-    } 
+  data() {
+    return {
+      isRotate: false,
+      isOpen: false
+    }
   },
+  props: {
+    isActive: {
+      type: String
+    }
+  },
+  computed: {
+    blogPosts() {
+      return this.$store.state.blogPosts
+    }
+  }
 }
 </script>
 
 <style scoped>
-
 .navigation {
   width: 2.5rem;
   height: 1.5rem;
   cursor: pointer;
 }
 
+.navbar.open .logo {
+  color: #000 !important;
+}
+
+.navbar.open .navigation span::before,
+.navbar.open .navigation span::after {
+  background-color: #000 !important;
+}
+
 .navFullWrapper {
   z-index: 0;
   position: fixed;
   opacity: 0;
-  transition: all .4s ease-in-out;
-  height: 100%;
+  transition: all 0.4s ease-in-out;
+  height: calc(100vh + 1px);
+  max-height: 54.375rem;
   top: 0;
   left: 0;
   position: fixed;
-  background: #4801ff;
+  background: white;
   text-align: left;
   width: 100%;
   color: #000;
-  display: flex;
-  align-items: center;
   pointer-events: none;
   visibility: hidden;
   transform: translate(0, -100%);
@@ -98,46 +114,43 @@ export default {
   left: 0;
   top: 0;
   z-index: 1;
-  background: #4801ff;
-  transition: all .4s ease-in-out;
-  pointer-events:all;
-  transform: translate(0,0);
+  background: white;
+  color: #000;
+  transition: all 0.4s ease-in-out;
+  pointer-events: all;
+  transform: translate(0, 0);
   visibility: visible;
 }
 
-.navFullInner ul{
+.navFullInner ul {
   list-style: none;
 }
 
-.navFullInner li a{
+.navFullInner li a {
   font-size: 3.375rem;
-  text-transform: uppercase;
-  margin-top: 1.45rem;
-  margin-bottom: 1.45rem;
-  color: transparent;
-  -webkit-text-stroke: 1.5px #ffffff;
+  margin-top: 0.05rem;
+  margin-bottom: 0.05rem;
+  color: #000;
   text-decoration: none;
   user-select: none;
-  transition: .2s ease;
+  transition: 0.2s ease;
   transform: translate(0);
   display: block;
+  font-weight: 500;
 }
 
-.navFullInner li a:hover{
+.navFullInner li a:hover {
   font-size: 3.375rem;
-  text-transform: uppercase;
   margin-top: 1.45rem;
   margin-bottom: 1.45rem;
-  color: white;
-  -webkit-text-stroke: 1.5px #ffffff;
   text-decoration: none;
   user-select: none;
-  transition: .2s ease;
+  transition: 0.2s ease;
   transform: translate(20px, 5px);
 }
 
 .navFullInner ul li sup {
-  font-size: .5rem;
+  font-size: 0.5rem;
   vertical-align: top;
   display: inline-block;
   width: 20px;
@@ -151,7 +164,7 @@ export default {
 
 .logo {
   font-family: 'Labil Grotesk Trial';
-  font-size: 2rem;  
+  font-size: 2rem;
   font-weight: 700;
   user-select: none;
   cursor: pointer;
@@ -165,17 +178,19 @@ export default {
 .spinner {
   animation: rotation 4s infinite linear;
 }
-  
+
 @keyframes rotation {
-		from {
-				transform: rotate(0deg);
-		}
-		to {
-				transform: rotate(359deg);
-		}
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }
 
-span, span::after, span::before {
+span,
+span::after,
+span::before {
   content: ' ';
   position: absolute;
   top: 50%;
@@ -183,7 +198,7 @@ span, span::after, span::before {
   margin-top: 0px;
   height: 2.2px;
   background-color: #000;
-  transition: all .1s ease-in;
+  transition: all 0.1s ease-in;
   opacity: 1;
 }
 
@@ -211,11 +226,8 @@ span.rotate::after {
   opacity: 1;
 }
 
-
-
 strong {
   padding-right: 25px;
   text-transform: uppercase;
 }
-
 </style>

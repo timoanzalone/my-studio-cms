@@ -8,6 +8,7 @@
         </main>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -112,6 +113,7 @@ a {
 <script>
 import ImagesLoaded from 'imagesloaded'
 import Nav from '~/components/nav.vue'
+import Footer from '~/components/footer.vue'
 
 export default {
   data() {
@@ -120,8 +122,8 @@ export default {
     }
   },
   components: {
-    Nav
-  },
-  mounted() {}
+    Nav,
+    Footer
+  }
 }
 </script>
