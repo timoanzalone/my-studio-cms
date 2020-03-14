@@ -45,8 +45,7 @@ export default {
   align-items: center;
   transition: all 0.3s ease;
   position: relative;
-  background-color: #4801ff;
-  color: #fff;
+  color: #000;
 }
 
 .hero.active {

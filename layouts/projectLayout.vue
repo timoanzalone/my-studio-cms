@@ -71,7 +71,6 @@ nav.active div.navigation span {
   padding-bottom: 35px;
   background-color: transparent;
   z-index: 2;
-  color: #fff;
 }
 
 .hero {

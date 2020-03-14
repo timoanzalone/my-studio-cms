@@ -1,13 +1,14 @@
 <template>
   <div>
     <nav class="navbar" v-bind:class="{ open: isOpen }">
-      <div class="flex items-center mx-auto px-10">
+      <div class="flex justify-between items-center mx-auto px-10">
+        <nuxt-link to="/" class="logo">Human Digital</nuxt-link>
+        <div class="logo">Welcome to your favorite studio!</div>
         <div v-on:click="isRotate = !isRotate, isOpen =!isOpen" class="navigation">
           <a to="#">
             <span v-bind:class="{ rotate: isRotate }"></span>
           </a>
         </div>
-        <nuxt-link to="/" class="logo">The Big Lebowski</nuxt-link>
       </div>
     </nav>
 
@@ -169,10 +170,6 @@ export default {
   user-select: none;
   cursor: pointer;
   color: #000 !important;
-  position: absolute;
-  left: 50%;
-  margin-right: -50%;
-  transform: translateX(-50%);
 }
 
 .spinner {
